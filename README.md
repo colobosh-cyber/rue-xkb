@@ -2,6 +2,12 @@
 
 Русинська клавіатурна розкладка **RUE (Carpathian phonetic)** для Linux (Ubuntu / Debian).
 
+## Keyboard Layout
+
+<p align="center">
+  <img src="assets/keyboard.png" alt="RUE Keyboard Layout" width="900"/>
+</p>
+
 ## Особливості
 
 * Фонетична розкладка на базі `ua(phonetic)`
