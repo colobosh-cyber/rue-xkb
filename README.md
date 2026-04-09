@@ -2,7 +2,6 @@
 
 Ubuntu / XKB layout (Carpathian phonetic)  
 Linux + Windows support
-
 Modern phonetic keyboard layout for Rusyn language across Linux and Windows.
 
 <p align="center">
