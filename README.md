@@ -68,6 +68,7 @@ sudo ./install.sh
 ```bash
 sudo dpkg-reconfigure xkb-data
 
+---
 
 ## Після видалення (важливо)
 
