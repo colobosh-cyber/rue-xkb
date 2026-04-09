@@ -1,6 +1,9 @@
-# Rusyn (RUE) Keyboard Layout for Linux (XKB)
+# Rusyn RUE Keyboard Layout
 
-Русинська клавіатурна розкладка **RUE (Carpathian phonetic)** для Linux (Ubuntu / Debian).
+Ubuntu / XKB layout (Carpathian phonetic)  
+Linux + Windows support
+
+Modern phonetic keyboard layout for Rusyn language across Linux and Windows.
 
 <p align="center">
 
