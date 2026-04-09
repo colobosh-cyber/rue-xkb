@@ -61,19 +61,35 @@ sudo ./install.sh
 
 ## Важливо: AltGr (3-й рівень)
 
+Якщо AltGr не працює, виконай команду
+`gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch']"`
+
+---
+
 ## Оновлення без перезавантаження
 
 Щоб застосувати зміни XKB без перезавантаження системи, виконай:
 
-```md
-sudo dpkg-reconfigure xkb-data
+`sudo dpkg-reconfigure xkb-data`
+
+У більшості випадків зміни застосовуються миттєво.
+
+---
+
+## Видалення
+
+Запусти:
+
+`chmod +x uninstall.sh`
+`sudo ./uninstall.sh`
+
+---
 
 ## Після видалення (важливо)
 
 Після видалення розкладки в GNOME може залишатися неробочий запис "Rusyn".
 
-Це нормальна поведінка, тому що GNOME зберігає список джерел вводу
-у власних налаштуваннях користувача, а не в системі XKB.
+Це нормальна поведінка, тому що GNOME зберігає список джерел вводу у власних налаштуваннях користувача, а не в системі XKB.
 
 ### Як прибрати
 
@@ -89,24 +105,19 @@ sudo dpkg-reconfigure xkb-data
 
 Перевір поточні джерела вводу:
 
-```bash
-gsettings get org.gnome.desktop.input-sources sources
-```
+`gsettings get org.gnome.desktop.input-sources sources`
 
 Знайди і видали запис:
 
-```text
-('xkb', 'rue+rusyn')
-```
+`('xkb', 'rue+rusyn')`
 
 Після цього задай оновлений список, наприклад:
 
-```bash
-gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ua')]"
-```
+`gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ua')]"`
+
+---
 
 ## Сумісність
-
 
 Перевірено на:
 
@@ -125,35 +136,11 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', '
 
 * Не потребує перезавантаження
 * Працює під Wayland і X11
-* Може вимагати повторного додавання розкладки в GNOME після змін
+* Може вимагати повторного додавання розкладки
 
 ---
 
 ## Ліцензія
 
 MIT License
-
----
-
-## Автор
-
-RUE Rusyn layout (Carpathian / Lemko variant)
-
-## Windows
-
-Файли для Windows знаходяться в папці: windows/
-
-### Встановлення
-
-1. Відкрий папку `windows/installer`
-2. Запусти `.exe`
-3. Додай розкладку в налаштуваннях Windows
-
-### Файли
-
-* `.klc` — джерело розкладки
-* `.exe` — готовий інсталятор
-* PDF — схема клавіатури
-
----
 
