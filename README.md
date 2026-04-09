@@ -2,6 +2,10 @@
 
 Rusyn keyboard layout (RUE) for Linux (XKB) and Windows. Carpathian phonetic layout with AltGr support.
 
+## Download
+
+👉 https://github.com/colobosh-cyber/rue-xkb/releases
+
 ![Release](https://img.shields.io/github/v/release/colobosh-cyber/rue-xkb)
 ![Downloads](https://img.shields.io/github/downloads/colobosh-cyber/rue-xkb/total)
 ![License](https://img.shields.io/github/license/colobosh-cyber/rue-xkb)
