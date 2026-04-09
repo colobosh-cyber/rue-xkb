@@ -60,63 +60,6 @@ sudo ./install.sh
 ---
 
 ## Важливо: AltGr (3-й рівень)
-
-Якщо AltGr не працює:
-
-```bash
-gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch']"
-```
-
----
-
-## Оновлення розкладки (без перезавантаження)
-
-```bash
-sudo dpkg-reconfigure xkb-data
-```
-
-У більшості випадків розкладка застосовується **миттєво**.
-
----
-
-## Видалення
-
-```bash
-chmod +x uninstall.sh
-sudo ./uninstall.sh
-```
-
----
-
-## Що робить install.sh
-
-* Копіює `symbols/rue`
-* Додає layout у:
-
-  * `/usr/share/X11/xkb/rules/evdev.lst`
-  * `/usr/share/X11/xkb/rules/evdev.xml`
-* Робить backup змінених файлів
-* Оновлює XKB через:
-
-  ```
-  dpkg-reconfigure xkb-data
-  ```
-
----
-
-## Що робить uninstall.sh
-
-* Видаляє `symbols/rue`
-* Прибирає записи з `evdev.lst` і `evdev.xml`
-* Залишає стандартний:
-
-  ```
-  rs(rue) = Pannonian Rusyn
-  ```
-* Оновлює XKB
-
----
-
 ## Після видалення (важливо)
 
 Після видалення розкладки в GNOME може залишатися неробочий запис "Rusyn".
@@ -134,16 +77,12 @@ sudo ./uninstall.sh
 
 **Rusyn (Carpathian phonetic)**
 
----
-
 ### Або через термінал:
 
 Перевір поточні джерела вводу:
 
 ```bash
 gsettings get org.gnome.desktop.input-sources sources
----
-
 ## Сумісність
 
 Перевірено на:
