@@ -1,8 +1,6 @@
-# Rusyn RUE Keyboard Layout
+# Rusyn (RUE) Keyboard Layout for Linux (XKB) and Windows
 
-Ubuntu / XKB layout (Carpathian phonetic)  
-Linux + Windows support
-Modern phonetic keyboard layout for Rusyn language across Linux and Windows.
+Rusyn keyboard layout (RUE) for Linux (XKB) and Windows. Carpathian phonetic layout with AltGr support.
 
 ![Release](https://img.shields.io/github/v/release/colobosh-cyber/rue-xkb)
 ![Downloads](https://img.shields.io/github/downloads/colobosh-cyber/rue-xkb/total)
