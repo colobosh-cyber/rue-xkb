@@ -5,11 +5,9 @@ Linux + Windows support
 Modern phonetic keyboard layout for Rusyn language across Linux and Windows.
 
 <p align="center">
-
-![Release](https://img.shields.io/github/v/release/colobosh-cyber/rue-xkb)
-![Downloads](https://img.shields.io/github/downloads/colobosh-cyber/rue-xkb/total)
-![License](https://img.shields.io/github/license/colobosh-cyber/rue-xkb)
-
+  <img src="https://img.shields.io/github/v/release/colobosh-cyber/rue-xkb" />
+  <img src="https://img.shields.io/github/downloads/colobosh-cyber/rue-xkb/total" />
+  <img src="https://img.shields.io/github/license/colobosh-cyber/rue-xkb" />
 </p>
 
 ## Keyboard Layout
