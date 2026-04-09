@@ -76,8 +76,7 @@ patch_evdev_xml_remove() {
             is_target = 0
 
             if (block ~ /<shortDescription>rue<\/shortDescription>/ &&
-                block ~ /<name>rusyn<\/name>/ &&
-                block ~ /Rusyn \(Carpathian phonetic\)/) {
+                block ~ /<name>rusyn<\/name>/) {
                 is_target = 1
             }
 

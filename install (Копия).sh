@@ -41,73 +41,76 @@ install_symbols_file() {
     install -m 0644 "$SRC_SYMBOLS" "$DST_SYMBOLS"
 }
 
-clean_our_evdev_lst_entries() {
-    echo "Прибираю старі записи Rue/Rusyn з evdev.lst ..."
-    awk -v line1="$RUE_LAYOUT_LINE" -v line2="$RUSYN_VARIANT_LINE" '
-    $0 == line1 { next }
-    $0 == line2 { next }
-    { print }
-    ' "$EVDEV_LST" > "$TMP_DIR/evdev.lst.cleaned"
-    cp "$TMP_DIR/evdev.lst.cleaned" "$EVDEV_LST"
-}
-
 patch_evdev_lst() {
     echo "Оновлюю evdev.lst ..."
 
-    clean_our_evdev_lst_entries
+    local has_layout=0
+    local has_variant=0
 
-    cp "$EVDEV_LST" "$TMP_DIR/evdev.lst.new"
-    printf "\n%s\n%s\n" "$RUE_LAYOUT_LINE" "$RUSYN_VARIANT_LINE" >> "$TMP_DIR/evdev.lst.new"
+    grep -Fq "$RUE_LAYOUT_LINE" "$EVDEV_LST" && has_layout=1
+    grep -Fq "$RUSYN_VARIANT_LINE" "$EVDEV_LST" && has_variant=1
+
+    if [[ "$has_layout" -eq 1 && "$has_variant" -eq 1 ]]; then
+        echo "Rue/Rusyn уже є в evdev.lst"
+        return
+    fi
+
+    if [[ "$has_layout" -eq 1 ]]; then
+        awk -v variant="$RUSYN_VARIANT_LINE" '
+        BEGIN { inserted=0 }
+        {
+            print
+            if ($0 == "rue             Rusyn" && inserted==0) {
+                print variant
+                inserted=1
+            }
+        }
+        END {
+            if (inserted==0) exit 2
+        }' "$EVDEV_LST" > "$TMP_DIR/evdev.lst.new" || {
+            echo "Не вдалося дописати variant rusyn у evdev.lst"
+            return 1
+        }
+    else
+        cp "$EVDEV_LST" "$TMP_DIR/evdev.lst.new"
+        printf "\n%s\n%s\n" "$RUE_LAYOUT_LINE" "$RUSYN_VARIANT_LINE" >> "$TMP_DIR/evdev.lst.new"
+    fi
 
     cp "$TMP_DIR/evdev.lst.new" "$EVDEV_LST"
     echo "evdev.lst оновлено."
 }
 
-clean_our_evdev_xml_layout() {
-    echo "Прибираю старий layout rue з evdev.xml ..."
-
-    awk '
-    BEGIN {
-        inblock = 0
-    }
-
-    /<layout>/ {
-        block = $0 "\n"
-        inblock = 1
-        next
-    }
-
-    inblock {
-        block = block $0 "\n"
-        if ($0 ~ /<\/layout>/) {
-            is_our_layout = 0
-
-            if (block ~ /<shortDescription>rue<\/shortDescription>/ &&
-                block ~ /<name>rusyn<\/name>/ &&
-                block ~ /Rusyn \(Carpathian phonetic\)/) {
-                is_our_layout = 1
-            }
-
-            if (is_our_layout == 0) {
-                printf "%s", block
-            }
-
-            block = ""
-            inblock = 0
-        }
-        next
-    }
-
-    { print }
-    ' "$EVDEV_XML" > "$TMP_DIR/evdev.xml.cleaned"
-
-    cp "$TMP_DIR/evdev.xml.cleaned" "$EVDEV_XML"
-}
-
 patch_evdev_xml() {
     echo "Оновлюю evdev.xml ..."
 
-    clean_our_evdev_xml_layout
+    local has_rue_layout=0
+
+    awk '
+    /<layout>/ {
+        block=$0 "\n"
+        inblock=1
+        next
+    }
+    inblock {
+        block = block $0 "\n"
+        if ($0 ~ /<\/layout>/) {
+            if (block ~ /<layout>[[:space:][:cntrl:]]*<configItem>[[:space:][:cntrl:]]*<name>rue<\/name>/) {
+                found=1
+            }
+            block=""
+            inblock=0
+        }
+        next
+    }
+    END {
+        if (found) exit 0
+        else exit 1
+    }' "$EVDEV_XML" && has_rue_layout=1 || true
+
+    if [[ "$has_rue_layout" -eq 1 ]]; then
+        echo "Окремий layout rue уже є в evdev.xml"
+        return
+    fi
 
     cat > "$TMP_DIR/rue-layout.xml" <<'EOF'
     <layout>

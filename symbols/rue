@@ -456,6 +456,12 @@ xkb_symbols "rusyn" {
         type[Group1]= "FOUR_LEVEL_ALPHABETIC",
         symbols[Group1]= [ Cyrillic_tse, Cyrillic_TSE, copyright, copyright ]
     };
+    
+    // AltGr+O = °
+    key <AD09> {
+        type[Group1]= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [ Cyrillic_o, Cyrillic_O, degree, degree ]
+    };
 
     // AltGr+8 = ×
     key <AE08> {
@@ -492,9 +498,6 @@ xkb_symbols "rusyn" {
         type[Group1]= "FOUR_LEVEL_ALPHABETIC",
         symbols[Group1]= [ Cyrillic_ve, Cyrillic_VE, U201C, U201C ]
     };
-
-    // Shift + AltGr + : = :
-    replace key <AC10> { [ U0491, U0490, U0491, colon ] };
 
     // AltGr+- = —
     key <AE11> {
