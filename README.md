@@ -65,7 +65,8 @@ sudo ./install.sh
 
 Щоб застосувати зміни XKB без перезавантаження системи, виконай:
 
-```bash
+
+```md
 sudo dpkg-reconfigure xkb-data
 
 ---
