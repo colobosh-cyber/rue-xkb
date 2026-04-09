@@ -60,6 +60,7 @@ sudo ./install.sh
 ---
 
 ## Важливо: AltGr (3-й рівень)
+
 ## Після видалення (важливо)
 
 Після видалення розкладки в GNOME може залишатися неробочий запис "Rusyn".
@@ -83,6 +84,7 @@ sudo ./install.sh
 
 ```bash
 gsettings get org.gnome.desktop.input-sources sources
+
 ## Сумісність
 
 Перевірено на:
