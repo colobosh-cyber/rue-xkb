@@ -142,3 +142,7 @@ sudo ./install.sh
 
 MIT License
 
+## Keywords
+
+rusyn keyboard linux, rue layout, rusyn keyboard ubuntu, xkb rusyn, carpathian keyboard layout, rusyn windows keyboard
+
