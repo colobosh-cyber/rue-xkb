@@ -10,6 +10,8 @@ Rusyn keyboard layout (RUE) for Linux (XKB) and Windows. Carpathian phonetic lay
 
 👉 https://github.com/colobosh-cyber/rue-xkb/releases
 
+Choose your platform: Linux (.deb) or Windows (.exe)
+
 ## Keyboard Layout
 
 <p align="center">
