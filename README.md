@@ -68,7 +68,7 @@ sudo ./install.sh
 Це нормальна поведінка, тому що GNOME зберігає список джерел вводу
 у власних налаштуваннях користувача, а не в системі XKB.
 
-### Як прибрати:
+### Як прибрати
 
 Відкрий:
 
@@ -78,14 +78,28 @@ sudo ./install.sh
 
 **Rusyn (Carpathian phonetic)**
 
-### Або через термінал:
+### Або через термінал
 
 Перевір поточні джерела вводу:
 
 ```bash
 gsettings get org.gnome.desktop.input-sources sources
+```
+
+Знайди і видали запис:
+
+```text
+('xkb', 'rue+rusyn')
+```
+
+Після цього задай оновлений список, наприклад:
+
+```bash
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ua')]"
+```
 
 ## Сумісність
+
 
 Перевірено на:
 
