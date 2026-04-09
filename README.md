@@ -141,7 +141,9 @@ sudo ./uninstall.sh
 Перевір поточні джерела вводу:
 
 ```bash
-gsettings get org.gnome.desktop.input-sources sources
+gsettings get org.gnome.desktop.input-sources source
+
+---
 
 ## Сумісність
 
