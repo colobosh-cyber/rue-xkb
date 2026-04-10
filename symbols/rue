@@ -451,6 +451,12 @@ xkb_symbols "rusyn" {
         symbols[Group1]= [ 4, dollar, EuroSign, EuroSign ]
     };
 
+    // AE05 -> 5 / %
+    key <AE05> {
+        type[Group1]= "FOUR_LEVEL",
+        symbols[Group1]= [ 5, percent, NoSymbol, NoSymbol ]
+    };
+
     // AltGr+C = ©
     key <AB03> {
         type[Group1]= "FOUR_LEVEL_ALPHABETIC",
@@ -531,13 +537,3 @@ xkb_symbols "rusyn" {
 
     include "level3(ralt_switch)"
 };
-
-
-   
-
-   
-
-
-    
-
-    
