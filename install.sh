@@ -164,9 +164,12 @@ show_final_notes() {
     echo
     echo "Що далі:"
     echo "1. Додай розкладку Rue/Rusyn у GNOME Settings."
-    echo "2. Якщо зміни не підхопились одразу, виконай:"
+    echo "2. Виконай:"
     echo "   sudo dpkg-reconfigure xkb-data"
-    echo "3. Якщо AltGr не працює, виконай:"
+    echo "3. Якщо розкладка не запрацювала одразу:"
+    echo "   - перезавантаж ПК, або"
+    echo "   - вийди з сеансу і зайди знову."
+    echo "4. Якщо AltGr не працює, виконай:"
     echo "   gsettings set org.gnome.desktop.input-sources xkb-options \"['lv3:ralt_switch']\""
     echo
     echo "Очікуваний формат джерела вводу:"

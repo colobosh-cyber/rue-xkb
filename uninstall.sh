@@ -125,10 +125,13 @@ show_final_notes() {
     echo "Готово."
     echo
     echo "Що далі:"
-    echo "1. Якщо зміни не підхопились одразу, виконай:"
+    echo "1. Виконай:"
     echo "   sudo dpkg-reconfigure xkb-data"
-    echo "2. Якщо Rue/Rusyn ще видно в GNOME Settings, прибери її вручну."
-    echo "3. Старий варіант rs(rue) = Pannonian Rusyn лишається недоторканим."
+    echo "2. Якщо зміни не підхопились одразу:"
+    echo "   - перезавантаж ПК, або"
+    echo "   - вийди з сеансу і зайди знову."
+    echo "3. Якщо Rue/Rusyn ще видно в GNOME Settings, прибери її вручну."
+    echo "4. Старий варіант rs(rue) = Pannonian Rusyn лишається недоторканим."
 }
 
 main() {
